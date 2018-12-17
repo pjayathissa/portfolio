@@ -106,7 +106,7 @@ class HomeScreen extends Component {
 			  easing: 'easeInOutQuad'
 			});
 	    	
-	    }, 2000);
+	    }, 3000);
 
 	    setTimeout(()=> {
 
@@ -123,7 +123,7 @@ class HomeScreen extends Component {
 
 	renderSVG() {
 		return (
-	<div id="lineDrawing" className="absolute w-100 h-50 tc"> 
+	<div id="lineDrawing" className="absolute w-100 h-50 "> 
 	<svg>
       <g fill="none" fillRule="evenodd" stroke="currentColor" strokeWidth="1" className="lines" transform = "translate(0 0)">
         <path d="M4.865,51.975V9.025h13.916c5.273,0,8.711,0.215,10.312,0.645
