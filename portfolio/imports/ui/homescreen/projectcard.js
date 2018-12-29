@@ -19,26 +19,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Collapse from '@material-ui/core/Collapse';
 
 const styles = theme => ({
-  card: {
-    minWidth: 175,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  actions: {
-    display: 'flex',
   },
 });
 
@@ -46,7 +29,8 @@ class ProjectCard extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { expanded: false };
+    this.state = { expanded: false,
+                  title: this.props.title };
 
   	
     
@@ -61,29 +45,26 @@ class ProjectCard extends Component {
 		const { classes } = this.props
 
 		return(
-	<div>
-	<h2> Architecture </h2>
-    <Card className="w-30">
+      <div className = "w-30 dib pa3 v-top">
+    <Card className="">
       <CardContent>
       <CardMedia
           className={classes.media}
-          image="/static/images/HiLo.jpg"
-          title="Paella dish"
+          image={this.props.imageurl}
+          title={this.props.title}
        />
        <h2>
-          HiLo Building
+          {this.props.title}
         </h2>
         <p className="gray fw2">
-          Facade Design Engineer
+          {this.props.position}
         </p>
         
         <p className="gray fw2">
-          2014
+          {this.props.year}
         </p>
         <p >
-          Net Zero Energy Residential Building
-          <br />
-          {'"some text"'}
+          {this.props.brief}
         </p>
       </CardContent>
       <CardActions>
