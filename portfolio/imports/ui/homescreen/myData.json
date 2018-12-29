@@ -1,0 +1,69 @@
+[
+	{
+		"architecture": [{
+
+
+		"title": "HiLo",
+		"position": "Facade Design Engineer",
+		"year": 2014,
+		"imageurl": "/static/images/HiLo.jpg",
+		"brief": "HiLo is a net zero energy duplex penthouse appartment to showcase the latest in leightweight construction, adaptive architecture, and energy efficiency.",
+		"descriptive": ["While the HiLo showcases numerous building innovations, my primary focus existed in the facade design", 
+		"The facade consits of an array of movable photovoltaic modules that can be actuated in two degrees of freedom "]
+		},
+
+		{
+		"title": "Adaptive Systems Lab",
+		"position": "Lead Design Engineer",
+		"year": 2017,
+		"imageurl": "/static/images/ASL.png",
+		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
+		"descriptive": ["paragraph 1", "paragraph2"]
+
+	}],
+
+		"engineering": [{
+
+
+		"title": "Adaptive Solar Facade",
+		"position": "Mechanical Designer",
+		"year": 2014,
+		"imageurl": "/static/images/ASF.jpg",
+		"brief": "he Adaptive Solar Facade is a modular, dynamic building facade consisting of thin film movable solar panels.",
+		"descriptive": ["", 
+		" "]
+		},
+
+		{
+		"title": "LED Solar Simulator",
+		"position": "Project Coordinator",
+		"year": 2017,
+		"imageurl": "/static/images/SolarSimulator.jpg",
+		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
+		"descriptive": ["paragraph 1", "paragraph2"]
+
+		},
+
+		{
+		"title": "Micro Structured Plaster",
+		"position": "Project Coordinator",
+		"year": 2017,
+		"imageurl": "/static/images/Plaster.png",
+		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
+		"descriptive": ["paragraph 1", "paragraph2"]
+
+		},
+
+		{
+		"title": "Micro Structured Plaster",
+		"position": "Project Coordinator",
+		"year": 2017,
+		"imageurl": "/static/images/Thermocycler.png",
+		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
+		"descriptive": ["paragraph 1", "paragraph2"]
+
+		}]
+}
+
+
+]

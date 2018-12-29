@@ -11,12 +11,13 @@ import anime from 'animejs';
 
 import ProjectCard from './projectcard.js'
 import PJname from './pj.js'
-import './architecture.json'
+import data from './myData.json'
 
 
 class HomeScreen extends Component {
   constructor() {
     super();
+    console.log(data[0].architecture[1])
 
 
 	    this.state = {
@@ -111,6 +112,37 @@ class HomeScreen extends Component {
 
 	 }
 
+	 renderArchitecture() {
+
+	 	return data[0].architecture.map((item, idx) => (
+	    			<ProjectCard
+	    				key = {idx}
+	    				title = {item.title}
+	    				year = {item.year}
+	    				imageurl = {item.imageurl}
+	    				position = {item.position}
+	    				brief = {item.brief}
+	    				descriptive = {item.descriptive}
+	    				/>
+	    			))
+
+	 }
+
+	 renderEngineering() {
+
+	 	return data[0].engineering.map((item, idx) => (
+	    			<ProjectCard
+	    				key = {idx}
+	    				title = {item.title}
+	    				year = {item.year}
+	    				imageurl = {item.imageurl}
+	    				position = {item.position}
+	    				brief = {item.brief}
+	    				descriptive = {item.descriptive}
+	    				/>
+	    			))
+
+	 }
 
 
 
@@ -133,8 +165,7 @@ class HomeScreen extends Component {
                     	// descriptive = {item.descriptive}
                     //   />
                     // ))}
-	
-    	console.log(this.state);
+
 
     	
 	    return (
@@ -162,11 +193,17 @@ class HomeScreen extends Component {
 		    		    	
 	    	</div>
 
+	    	// TODO Add horizontal scrolling https://material-ui.com/demos/grid-list/
 	    	<div className = "center bg-white pa3 ph5-ns">
-	    		<h2> Architecture </h2>
-	    		<ProjectCard title = {"HiLo Building"} year = {2014} imageurl = {"/static/images/HiLo.jpg"} position = {"Facade Design Engineer"} brief = {"Some informaiton about the project"}/>
-	    		<ProjectCard title = {"Adaptive Systems Laboratory"} year = {2014} imageurl = {"/static/images/HiLo.jpg"} position = {"Lead Design Engineer"} brief = {"Some informaiton about the projectSome informaiton about the project"}/>
+	    		<h2 className = "pl3"> Architecture </h2>
+	    		{this.renderArchitecture()}
 	    	</div>
+
+	    	<div className = "center bg-white pa3 ph5-ns">
+	    		<h2 className = "pl3"> Engineering Design </h2>
+	    		{this.renderEngineering()}
+	    	</div>
+
 
 	    	</div>
     );

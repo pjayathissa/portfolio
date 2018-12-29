@@ -41,8 +41,22 @@ class ProjectCard extends Component {
     	this.setState(state => ({ expanded: !state.expanded }))
     };
 
+
+    // Trying to find a way to parse the html text but cant......
+  parseDescriptiveText() {
+
+    //theres probably a better way to create paragraphs...
+    return (this.props.descriptive.map((paragraph, idx) =>
+
+      <p key = {idx}> {paragraph}</p>)
+      )
+  }
+
+
+
 	render(){
 		const { classes } = this.props
+    console.log(this.props.imageurl)
 
 		return(
       <div className = "w-30 dib pa3 v-top">
@@ -77,19 +91,7 @@ class ProjectCard extends Component {
 
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <p>
-              The HiLo Building is a research and innovatin pl
-            <br />
-              Lorem ipsum dolor sit amet, option maiorum scriptorem pro at, 
-              purto reformidans et nam. His ei vero augue, eum veri perfecto at. 
-              Vix te suas nobis noluisse, ponderum qualisque intellegebat vix et. 
-              Idque summo noluisse ei vis, pro quot mollis in. Cu melius constituto assueverit usu, 
-              repudiandae definitiones sea eu. Eu tota legere pri.
-            </p>
-
-            <p>
-              Lorem ipsum
-            </p>
+            {this.parseDescriptiveText()}
           </CardContent>
         </Collapse>
 
