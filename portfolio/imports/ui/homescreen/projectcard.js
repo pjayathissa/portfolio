@@ -58,29 +58,33 @@ class ProjectCard extends Component {
 		const { classes } = this.props
     console.log(this.props.imageurl)
 
+    //TODO the minCardWidth style in main.css is a little hacky, look for a better scalable solution
+
+    //TODO: The vh-100 in CardContent is a little hack to ensure that all the cards have the same hight, but it leave a lot of white space
+
 		return(
-      <div className = "w-30 dib pa3 v-top">
-    <Card className="">
-      <CardContent>
-      <CardMedia
-          className={classes.media}
-          image={this.props.imageurl}
-          title={this.props.title}
-       />
-       <h2>
-          {this.props.title}
-        </h2>
-        <p className="gray fw2">
-          {this.props.position}
-        </p>
-        
-        <p className="gray fw2">
-          {this.props.year}
-        </p>
-        <p >
-          {this.props.brief}
-        </p>
-      </CardContent>
+      <div className = "w-30 pa3 v-top fl minCardWidth" >
+        <Card className="">
+          <CardContent className="vh-100">
+            <CardMedia
+              className={classes.media}
+              image={this.props.imageurl}
+              title={this.props.title}
+            />
+         <h2>
+            {this.props.title}
+          </h2>
+          <p className="gray fw2">
+            {this.props.position}
+          </p>
+          
+          <p className="gray fw2">
+            {this.props.year}
+          </p>
+          <p>
+            {this.props.brief}
+          </p>
+        </CardContent>
       <CardActions>
 
           <button className = "f6 link dim ph3 pv2 mb2 dib white bg-black"
@@ -95,7 +99,7 @@ class ProjectCard extends Component {
           </CardContent>
         </Collapse>
 
-    </Card>
+      </Card>
     </div>
   );
 	}

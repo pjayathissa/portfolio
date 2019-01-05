@@ -24,8 +24,8 @@ class PJname extends Component {
 	render() {
 	
 	return (
-	<div id="lineDrawing" className="absolute w-100 h-50 "> 
-		<svg width="700px" height="175.063px" viewBox="0 0 700 75.063">
+	<div id="lineDrawing" className="absolute w-90 h-50 "> 
+		<svg viewBox="0 0 700 175.063">
       <g fill="none" fillRule="evenodd" stroke="currentColor" strokeWidth="1" className="P-letter" transform = "matrix(1 0 0 1 60.5 51.9751)">
         <path fill="none" id = "P" stroke="white" strokeMiterlimit="10" d="M238.313,51.975V9.025h13.916c5.273,0,8.711,0.215,10.312,0.645
 		c2.461,0.645,4.521,2.046,6.182,4.204c1.66,2.158,2.49,4.947,2.49,8.364c0,2.637-0.479,4.854-1.436,6.65

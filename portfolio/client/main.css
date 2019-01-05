@@ -13,3 +13,20 @@
   transform: rotate(-45deg);
   box-sizing: border-box;
 }
+
+.gridList {
+  flexWrap: nowrap;
+  transform: translateZ(0);
+  background-color: black;
+}
+
+.gridOverflow {
+
+
+  white-space:pre;
+}
+
+.minCardWidth {
+  min-width: 300px;
+  width: 30%;
+}

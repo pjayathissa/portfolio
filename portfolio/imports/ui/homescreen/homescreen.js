@@ -5,13 +5,23 @@ import { Meteor } from 'meteor/meteor';
 
 import { Transition, TransitionGroup} from 'react-transition-group';
  
-//Styling - not really using them to their full extent
 import 'tachyons';
 import anime from 'animejs';
+
+import GridList from '@material-ui/core/GridList';
+import { withStyles } from '@material-ui/core/styles';
 
 import ProjectCard from './projectcard.js'
 import PJname from './pj.js'
 import data from './myData.json'
+
+const styles = theme => ({
+  gridList: {
+    flexWrap: 'nowrap',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
+  },
+});
 
 
 class HomeScreen extends Component {
@@ -147,26 +157,7 @@ class HomeScreen extends Component {
 
 
     render() {
-    	//tranistion component takes two values, in (which if true will display entering and entered)
-    	// in == false will render exiting and exited
-    	// duration is the time between entering - entered, and exiting-exited
-
-    	// use div, relative, absolute, relative to overlay divs on top of each other
-
-    	// Do something like this to map the profiles to the type
-    	//{architecture.map((item, idx) => (
-                    //   <ProjectCard
-                    //     key={idx}
-                    //     title={item.title}
-                    //     year={item.year}
-                    //     imageurl={item.imageurl}
-                    	// position = {item.position}
-                    	// brief = {item.brief}
-                    	// descriptive = {item.descriptive}
-                    //   />
-                    // ))}
-
-
+    	const { classes } = this.props
     	
 	    return (
 		
@@ -177,7 +168,7 @@ class HomeScreen extends Component {
 	    		<div className = "dtc v-mid tc white ph3 ph4-l">
 
 	    			<div className = "w-100 h-50"> 
-	    			<PJname/>
+	    				<PJname/>
 	    			</div>
 
 					<div id = "scrolldiv" className= "white bottom-0 pa5 o-0">
@@ -190,25 +181,32 @@ class HomeScreen extends Component {
 
 				</div>
 				
-		    		    	
+		    	    	
 	    	</div>
 
-	    	// TODO Add horizontal scrolling https://material-ui.com/demos/grid-list/
-	    	<div className = "center bg-white pa3 ph5-ns">
+	    	
+	    	<div className = "center bg-white pa3 ph5-ns cf ">
 	    		<h2 className = "pl3"> Architecture </h2>
-	    		{this.renderArchitecture()}
+	    		<GridList className={classes.gridList} cols={3.5}> 
+	    			{this.renderArchitecture()}
+	    		</GridList>
 	    	</div>
+	    	
 
-	    	<div className = "center bg-white pa3 ph5-ns">
+	    	<div className = "bg-white pa3 ph5-ns">
 	    		<h2 className = "pl3"> Engineering Design </h2>
-	    		{this.renderEngineering()}
-	    	</div>
+		    	<GridList className={classes.gridList} cols={3.5}> 
+		    		{this.renderEngineering()}
+		    	</GridList>
 
-
 	    	</div>
+					
+
+			</div>
+
     );
   }
 }
 
-// Exporting HomeScreen Component, while simultaneously pulling data from the database
-export default HomeScreen
+// Exporting HomeScreen Component
+export default withStyles(styles)(HomeScreen)
