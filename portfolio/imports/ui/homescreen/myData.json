@@ -106,8 +106,8 @@
 		"title": "SpaceMatch",
 		"position": "Project Coordinator",
 		"year": 2019,
-		"imageurl": "/static/images/Thermocycl.png",
-		"brief": "Space Match is a hot-desking application that prioritises occupant comfort by finding spaces that match an individuals comfort profile. It is currently under development, with first deployment in 2019 so  watch this space for now",
+		"imageurl": "/static/images/SpaceMatch.png",
+		"brief": "Space Match is a hot-desking application that prioritises occupant comfort by finding spaces that match an individuals comfort profile. It is currently under development, with first deployment in 2019 so watch this space for now",
 		"descriptive": ["Stay Tuned", ""]
 
 		},
