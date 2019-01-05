@@ -167,11 +167,11 @@ class HomeScreen extends Component {
 
 	    		<div className = "dtc v-mid tc white ph3 ph4-l">
 
-	    			<div className = "w-100 h-50"> 
+	    			<div className = "absolute w-100 h-50 top-1"> 
 	    				<PJname/>
 	    			</div>
 
-					<div id = "scrolldiv" className= "white bottom-0 pa5 o-0">
+					<div id = "scrolldiv" className= "white bottom-1 pa5 o-0">
 						<h3> Scroll </h3>
 						<div id = "scroll" className= "scrollbutton pa1 white">
 		    				<span></span>

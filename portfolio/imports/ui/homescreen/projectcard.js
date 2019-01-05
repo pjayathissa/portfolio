@@ -65,7 +65,7 @@ class ProjectCard extends Component {
 		return(
       <div className = "w-30 pa3 v-top fl minCardWidth" >
         <Card className="">
-          <CardContent className="vh-100">
+          <CardContent className="">
             <CardMedia
               className={classes.media}
               image={this.props.imageurl}
