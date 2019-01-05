@@ -59,11 +59,24 @@ class ProjectCard extends Component {
     console.log(this.props.imageurl)
 
     //TODO the minCardWidth style in main.css is a little hacky, look for a better scalable solution
-
+    // TODO: The card widths are not the same if the screen is not full... might be due to the image size difference..
     //TODO: The vh-100 in CardContent is a little hack to ensure that all the cards have the same hight, but it leave a lot of white space
 
+
+
+// {
+//     "title": "SpaceMatch",
+//     "position": "Project Coordinator",
+//     "year": 2019,
+//     "imageurl": "/static/images/Thermocycl.png",
+//     "brief": "",
+//     "descriptive": ["", ""]
+
+//     },
+
+
 		return(
-      <div className = "w-30 pa3 v-top fl minCardWidth" >
+      <div className = "pa3 v-top fl minCardWidth" >
         <Card className="">
           <CardContent className="">
             <CardMedia
@@ -71,9 +84,9 @@ class ProjectCard extends Component {
               image={this.props.imageurl}
               title={this.props.title}
             />
-         <h2>
+         <h3>
             {this.props.title}
-          </h2>
+          </h3>
           <p className="gray fw2">
             {this.props.position}
           </p>

@@ -1,37 +1,51 @@
 [
 	{
 		"architecture": [{
+		"title": "Adaptive Systems Lab",
+		"position": "Lead Design Engineer",
+		"year": 2017,
+		"imageurl": "/static/images/ASL.png",
+		"brief": "The Adaptive Systems Laboratory is a state of the art, buildings research facility. The lab will test the latest in robotic fabrication methods, energy efficiency, facades, solar power, building systems and control.",
+		"descriptive": [
+			"The laboratory comes equipped with an artificial microclimate, in which the temperature, humidity and solar radiation can be controlled to simulate virtually any global climate. See the LED Solar Emulator in Engineering below for more information. A modular test room is embedded within this environment", 
+			"The building also has two south facing test cells that are exposed to the natural Zurich climate, in which parallel experiments can be conducted. The facade, roof, floor, and internal walls are designed to be modular so they can be substituted in future experiments.",
+			"The ground floor consists of a large fully glazed machine room, in which new buildings systems such as heat pumps can be installed and used to supply the various experimental zones."
+			]
+
+	},
+
+		{
 
 
 		"title": "HiLo",
 		"position": "Facade Design Engineer",
 		"year": 2014,
 		"imageurl": "/static/images/HiLo.jpg",
-		"brief": "HiLo is a net zero energy duplex penthouse appartment to showcase the latest in leightweight construction, adaptive architecture, and energy efficiency. ",
-		"descriptive": ["While the HiLo showcases numerous building innovations, my primary focus existed in the facade design", 
-		"The facade consits of an array of movable photovoltaic modules that can be actuated in two degrees of freedom "]
-		},
+		"brief": "HiLo is a net zero energy duplex penthouse apartment that showcases the latest in lightweight construction, adaptive architecture, and energy efficiency. It will be constructed in 2020 in Zurich.",
+		"descriptive": ["Situated in Zurich, Switzerland, the NEST HiLo is an exemplar project that unites the often conflicting fields of structural design, architecture, and energy efficiency. The HiLo is a net energy plus building, designed to produce 50% surplus in electricity. Key innovations include:", 
+		"• An ultra thin, thermally active concrete roof, with flexible thin film photovoltaics",
+		"• Thermally active, pre-fabricated floor system that uses 70% less concrete than conventional methods",
+		"• An Adaptive Solar Facade using soft robotics and advanced control methodologies to optimise photovoltaic electricity generation while simultaneously managing solar thermal gains into the room. I was predominantly working here, and you can read more in Engineering below",
+		"The Nest HiLo is a collaborative project with Block Research Group, The Chair of Architecture and Building Systems, and Supermanoeuvre, with multiple industrial project partners."]
+		}
 
-		{
-		"title": "Adaptive Systems Lab",
-		"position": "Lead Design Engineer",
-		"year": 2017,
-		"imageurl": "/static/images/ASL.png",
-		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
-		"descriptive": ["paragraph 1", "paragraph2"]
-
-	}],
+		],
 
 		"engineering": [{
 
 
 		"title": "Adaptive Solar Facade",
-		"position": "Mechanical Designer",
+		"position": "Design and Fabrication",
 		"year": 2014,
 		"imageurl": "/static/images/ASF.jpg",
-		"brief": "he Adaptive Solar Facade is a modular, dynamic building facade consisting of thin film movable solar panels.",
-		"descriptive": ["", 
-		" "]
+		"brief": "The Adaptive Solar Facade is a kinetic facade that responds to variations in the exterior and interior climate to maximise occupant comfort while minimising energy consumption",
+		"descriptive": [
+		"Designed primarily for the HiLo building (above), the facade fuses the disciplines of architecture and robotics to create an energy efficient building envelope. ", 
+		" The facade consists of an array of thin film photovoltaic panels that can be independently actuated in two degrees of freedom using a custom built soft robotic actuator.",
+		"The facade will move the panels to maintain a comfortable interior temperature and daylight conditions, maximise the electricity production on the panels, and reduce the energy demand of the building space behind the facade. This is achieved through a default multi-objective optimisation algorithm, which is to be complimented with machine learning once installed.",
+		"The facade has been designed with maintenance costs and lifecycle carbon costs in mind. ",
+		"Due to the amount of innovation required to develop this technology, I was able to publish a doctoral dissertation on the topic."
+		]
 		},
 
 		{
@@ -39,30 +53,78 @@
 		"position": "Project Coordinator",
 		"year": 2017,
 		"imageurl": "/static/images/SolarSimulator.jpg",
-		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
-		"descriptive": ["paragraph 1", "paragraph2"]
+		"brief": "The LED Solar Simulator can simulate the radiation characteristics of the sun with a high spectral match, uniformity, and parallelism of light. It is a first of its kind technology, that is currently under construction.",
+		"descriptive": [
+		"The Solar Simulator was designed for the Adaptive Systems Laboratory with our partner company USHIO. ", 
+		"The technology is still under construction, and as a result I cannot disclose any further details. I will publish more facinating aspects of this design once it is constructed"]
 
 		},
 
 		{
 		"title": "Micro Structured Plaster",
-		"position": "Project Coordinator",
-		"year": 2017,
+		"position": "Design and Fabrication",
+		"year": 2013,
 		"imageurl": "/static/images/Plaster.png",
-		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
-		"descriptive": ["paragraph 1", "paragraph2"]
+		"brief": "This microstructure plaster is capable of healing wounds three times faster than a conventional plaster. The pattern of concentric lines helps guide skin cells from the edge of the wound to the centre.",
+		"descriptive": [
+		"Biologists at the ETH Zurich discovered that skin cells, when placed on a ridges measuring 1micrometer high, and wide, will always move along the ridge line and not across it. They hypothesised that if this were to be constructed in the form of a circular plaster, it would help guide cells from the outside of the wound towards the centre, thus accelerating the healing process.", 
+		"I designed the fabrication methodology at IBM Laboratories in Zurich, using photolithography and silicon wafer etching techniques that are commonly used in microprocessor production.",
+		"Through a painful trial and error process, a fabrication methodology was finally developed to create a silicone wafer mould, that could cast a PDMS silicone (note the e) rubber. ",
+		"My first experiments on a statistically insignificant sample set of lab grown human cells showed an acceleration of healing by a factor of three. The technology is now back in the hands of the biologists where they will continue testing in the hope to one day bring this to the market. Although, knowing the medical field, this may still be a long way away."
+		]
 
 		},
 
 		{
-		"title": "Micro Structured Plaster",
+		"title": "Thermocycler",
 		"position": "Project Coordinator",
-		"year": 2017,
+		"year": 2012,
 		"imageurl": "/static/images/Thermocycler.png",
-		"brief": "The Adaptive Systems Laboratory is a modular building that can be utilised for the testing of building facades and roofs, building systems, control methodologies, solar harvestors, and occupant comfort levels",
-		"descriptive": ["paragraph 1", "paragraph2"]
+		"brief": "The thermocycler is an ugly yet functional piece of machinery designed and built for greenTEG. It is a thermal chamber for micro-chips that can cycle from -40C to 200C and back in 4 minutes. ",
+		"descriptive": [
+		"The thermocycler was built to JDEC standards, in order to test the reliability of micro-chips in harsh thermal environments. ", 
+		"It runs off a carefully calculated stack of Peltier elements, with a water cooled network as a heat sink. In order to reach -40C at such speeds, the water was pre-cooled using another set of Peltier elements with heat exchange to the air. "]
 
-		}]
+		},
+
+		{
+		"title": "Yike Bike",
+		"position": "Engineering Consultancy",
+		"year": 2010,
+		"imageurl": "/static/images/YikeBike.jpg",
+		"brief": "The Yike Bike was one of eight clients of PJ-Dobbie Engineering, a small design consultancy set up by myself and Nick Dobbie back in 2010. The Yike Bike is a lightweight foldable electric motorbike.",
+		"descriptive": [
+		"Projects at Yike Bike included: ", 
+		" • Testing of short fibre carbon composite materials for their Model V bikes",
+		" • Design of a three axis ball bar unit to attach a suitcase",
+		" • Electronic ingress protection testing"]
+
+		}],
+
+		"software": [
+		{
+		"title": "SpaceMatch",
+		"position": "Project Coordinator",
+		"year": 2019,
+		"imageurl": "/static/images/Thermocycl.png",
+		"brief": "Space Match is a hot-desking application that prioritises occupant comfort by finding spaces that match an individuals comfort profile. It is currently under development, with first deployment in 2019 so  watch this space for now",
+		"descriptive": ["Stay Tuned", ""]
+
+		},
+
+		{
+		"title": "BioCloud",
+		"position": "Developer",
+		"year": 2015,
+		"imageurl": "/static/images/BioCloud.png",
+		"brief": "BioCloud brings complex computer vision tools in an easy to use, graphical interface that requires no prior programming experience. It was designed for biomedical researchers to accelerate the analysis of microscopic images.",
+		"descriptive": [
+		"BioCloud wraps the openCV computer vision library in an intuitive drop and drag interface where they graphically program their own computer vision algorithm. Once the pipeline of commands is set the user can batch process their algorithm to their entire data set.", 
+		"The software was accepted into the Oxford-Cambridge biotech accelerator. Unfortunately, due to the lack of time, this project came to a halt. ",
+		"Due to the advances in browser technology, and the release of openCVjs, I plan on developing a fully client side BioCloud2 sometime in the future. Stay tuned"]
+
+		}
+		]
 }
 
 

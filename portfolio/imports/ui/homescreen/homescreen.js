@@ -154,6 +154,22 @@ class HomeScreen extends Component {
 
 	 }
 
+	 renderSoftware() {
+
+	 	return data[0].software.map((item, idx) => (
+	    			<ProjectCard
+	    				key = {idx}
+	    				title = {item.title}
+	    				year = {item.year}
+	    				imageurl = {item.imageurl}
+	    				position = {item.position}
+	    				brief = {item.brief}
+	    				descriptive = {item.descriptive}
+	    				/>
+	    			))
+
+	 }
+
 
 
     render() {
@@ -194,9 +210,17 @@ class HomeScreen extends Component {
 	    	
 
 	    	<div className = "bg-white pa3 ph5-ns">
-	    		<h2 className = "pl3"> Engineering Design </h2>
+	    		<h2 className = "pl3"> Engineering </h2>
 		    	<GridList className={classes.gridList} cols={3.5}> 
 		    		{this.renderEngineering()}
+		    	</GridList>
+
+	    	</div>
+
+	    	<div className = "bg-white pa3 ph5-ns">
+	    		<h2 className = "pl3"> Software </h2>
+		    	<GridList className={classes.gridList} cols={3.5}> 
+		    		{this.renderSoftware()}
 		    	</GridList>
 
 	    	</div>
