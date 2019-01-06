@@ -26,7 +26,26 @@
   white-space:pre;
 }
 
+/* So this might be a little hacky, but its to get all browsers working*/
+
+/* This is for chrome and safari mobile in which case the widths scale */
 .minCardWidth {
-  min-width: 300px;
-  width: 300px;
+  min-width: 600px;
+  width: 600px;
+}
+
+/* this is the default firefox mobile app which has a different sacaling*/
+@media only screen and (max-width: 600px) {
+  .minCardWidth {
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
+/* This is for desktops */
+@media only screen and (min-device-width: 700px) {
+  .minCardWidth {
+    min-width: 300px;
+    width: 300px;
+  }
 }

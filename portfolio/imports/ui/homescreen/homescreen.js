@@ -183,7 +183,7 @@ class HomeScreen extends Component {
 
 	    		<div className = "dtc v-mid tc white ph3 ph4-l">
 
-	    			<div className = "absolute w-100 h-50 top-1"> 
+	    			<div className = "absolute w-100 h-50 top-0"> 
 	    				<PJname/>
 	    			</div>
 
@@ -201,7 +201,7 @@ class HomeScreen extends Component {
 	    	</div>
 
 	    	
-	    	<div className = "center bg-white pa3 ph5-ns cf ">
+	    	<div className = "bg-white pa3 ph5-ns ">
 	    		<h2 className = "pl3"> Architecture </h2>
 	    		<GridList className={classes.gridList} cols={3.5}> 
 	    			{this.renderArchitecture()}
