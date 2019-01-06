@@ -73,6 +73,8 @@ class HomeScreen extends Component {
 
 	 	}, 0)
 
+	 	//Somehow using the setTimeout prevents anime objects from freezing on screen when the viewer is not hovering over them 
+	 	setTimeout(()=>{
 	 	var startPl = anime({
 			  targets: '#lineDrawing .P-letter path',
 			  translateX: [
@@ -83,6 +85,7 @@ class HomeScreen extends Component {
 			    }
 			  ],
 			});
+	 },0)
 
 	 	setTimeout(()=> {
 	 	var upperletters = anime({
@@ -178,54 +181,49 @@ class HomeScreen extends Component {
 	    return (
 		
 	    	<div>
-	    	<div className = "vh-100  dt w-100 bg-black">
+		    	<div className = "vh-100  dt w-100 bg-black">
+		    		<div className = "dtc v-mid tc white ph3 ph4-l">
+		    			<div className = "w-100 h-50 top-0"> 
+		    				<PJname/>
+		    			</div>
 
-
-	    		<div className = "dtc v-mid tc white ph3 ph4-l">
-
-	    			<div className = "w-100 h-50 top-0"> 
-	    				<PJname/>
-	    			</div>
-
-					<div id = "scrolldiv" className= "white bottom-1 pa5 o-0">
-						<h3> Scroll </h3>
-						<div id = "scroll" className= "scrollbutton pa1 white">
-		    				<span></span>
+						<div id = "scrolldiv" className= "white bottom-1 pa5 o-0">
+							<h3> Scroll </h3>
+							<div id = "scroll" className= "scrollbutton pa1 white">
+			    				<span></span>
+							</div>
 						</div>
-					</div>
+					</div>		    	    	
+		    	</div>
+
+		    	<div className = "bg-white pa3 ph5-ns ">
+		    		<h2 className = "pl3"> Architecture </h2>
+		    		<GridList className={classes.gridList} cols={3.5}> 
+		    			{this.renderArchitecture()}
+		    		</GridList>
+		    	</div>
+		    	
+
+		    	<div className = "bg-white pa3 ph5-ns">
+		    		<h2 className = "pl3"> Engineering </h2>
+			    	<GridList className={classes.gridList} cols={3.5}> 
+			    		{this.renderEngineering()}
+			    	</GridList>
+
+		    	</div>
+
+		    	<div className = "bg-white pa3 ph5-ns">
+		    		<h2 className = "pl3"> Software </h2>
+			    	<GridList className={classes.gridList} cols={3.5}> 
+			    		{this.renderSoftware()}
+			    	</GridList>
+
+		    	</div>
+
+		    	<footer class="pv4 ph3 ph5-m ph3-l bg-black white">
+				  <small class="f6 db fr"> 2019 <b class="ttu">Prageeth Jayathissa</b></small>
+				</footer>
 					
-
-				</div>
-				
-		    	    	
-	    	</div>
-
-	    	
-	    	<div className = "bg-white pa3 ph5-ns ">
-	    		<h2 className = "pl3"> Architecture </h2>
-	    		<GridList className={classes.gridList} cols={3.5}> 
-	    			{this.renderArchitecture()}
-	    		</GridList>
-	    	</div>
-	    	
-
-	    	<div className = "bg-white pa3 ph5-ns">
-	    		<h2 className = "pl3"> Engineering </h2>
-		    	<GridList className={classes.gridList} cols={3.5}> 
-		    		{this.renderEngineering()}
-		    	</GridList>
-
-	    	</div>
-
-	    	<div className = "bg-white pa3 ph5-ns">
-	    		<h2 className = "pl3"> Software </h2>
-		    	<GridList className={classes.gridList} cols={3.5}> 
-		    		{this.renderSoftware()}
-		    	</GridList>
-
-	    	</div>
-					
-
 			</div>
 
     );

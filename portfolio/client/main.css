@@ -17,12 +17,9 @@
 .gridList {
   flexWrap: nowrap;
   transform: translateZ(0);
-  background-color: black;
 }
 
 .gridOverflow {
-
-
   white-space:pre;
 }
 
