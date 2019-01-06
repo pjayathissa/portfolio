@@ -183,7 +183,7 @@ class HomeScreen extends Component {
 
 	    		<div className = "dtc v-mid tc white ph3 ph4-l">
 
-	    			<div className = "absolute w-100 h-50 top-0"> 
+	    			<div className = "w-100 h-50 top-0"> 
 	    				<PJname/>
 	    			</div>
 
