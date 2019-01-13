@@ -13,6 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ProjectCard from './projectcard.js'
 import PJname from './pj.js'
+import ScrollerChart from './scroller.js'
 import data from './myData.json'
 
 const styles = theme => ({
@@ -197,6 +198,9 @@ class HomeScreen extends Component {
 							</div>
 						</div>
 					</div>		    	    	
+		    	</div>
+		    	<div className = "bg-black">
+		    	<ScrollerChart/>
 		    	</div>
 
 		    	<div className = "bg-white pa3 ph5-ns ">
