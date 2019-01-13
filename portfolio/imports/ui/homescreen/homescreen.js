@@ -133,6 +133,7 @@ class HomeScreen extends Component {
 	    				title = {item.title}
 	    				year = {item.year}
 	    				imageurl = {item.imageurl}
+	    				linksurl = {item.linksurl}
 	    				position = {item.position}
 	    				brief = {item.brief}
 	    				descriptive = {item.descriptive}
@@ -149,6 +150,7 @@ class HomeScreen extends Component {
 	    				title = {item.title}
 	    				year = {item.year}
 	    				imageurl = {item.imageurl}
+	    				linksurl = {item.linksurl}
 	    				position = {item.position}
 	    				brief = {item.brief}
 	    				descriptive = {item.descriptive}
@@ -165,6 +167,7 @@ class HomeScreen extends Component {
 	    				title = {item.title}
 	    				year = {item.year}
 	    				imageurl = {item.imageurl}
+	    				linksurl = {item.linksurl}
 	    				position = {item.position}
 	    				brief = {item.brief}
 	    				descriptive = {item.descriptive}
@@ -220,8 +223,8 @@ class HomeScreen extends Component {
 
 		    	</div>
 
-		    	<footer class="pv4 ph3 ph5-m ph3-l bg-black white">
-				  <small class="f6 db fr"> 2019 <b class="ttu">Prageeth Jayathissa</b></small>
+		    	<footer className="pv4 ph3 ph5-m ph3-l bg-black white">
+				  <small className="f6 db fr"> 2019 <b className="ttu">Prageeth Jayathissa</b></small>
 				</footer>
 					
 			</div>

@@ -28,14 +28,8 @@ const styles = theme => ({
 class ProjectCard extends Component {
   constructor(props) {
     super(props);
-
     this.state = { expanded: false,
                   title: this.props.title };
-
-  	
-    
-
-
 	}
 	handleExpandClick = () => {
     	this.setState(state => ({ expanded: !state.expanded }))
@@ -44,19 +38,26 @@ class ProjectCard extends Component {
 
     // Trying to find a way to parse the html text but cant......
   parseDescriptiveText() {
-
     //theres probably a better way to create paragraphs...
     return (this.props.descriptive.map((paragraph, idx) =>
-
       <p key = {idx}> {paragraph}</p>)
       )
+  }
+
+  parseLinks(){
+    if (this.props.linksurl){
+    return (
+      this.props.linksurl.map((link, idx) =>
+      <p key = {idx}> <a href={link.url} target="_blank" > {link.text} </a> </p>
+)
+    )
+  }
   }
 
 
 
 	render(){
 		const { classes } = this.props
-    console.log(this.props.imageurl)
 
     //TODO the minCardWidth style in main.css is a little hacky, look for a better scalable solution
     // TODO: The card widths are not the same if the screen is not full... might be due to the image size difference..
@@ -109,6 +110,8 @@ class ProjectCard extends Component {
         <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             {this.parseDescriptiveText()}
+
+            {this.parseLinks()}
           </CardContent>
         </Collapse>
 
