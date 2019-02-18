@@ -13,8 +13,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ProjectCard from './projectcard.js'
 import PJname from './pj.js'
-import ScrollerChart from './scroller.js'
-import data from './myData.json'
+import ScrollerChart from './annimateSections.js'
+import data from './portfolioData.json'
 
 const styles = theme => ({
   gridList: {
@@ -34,11 +34,7 @@ class HomeScreen extends Component {
 	    this.state = {
 	    	data: [1],
 	    	in: true,
-	    };
-
-	    
-
-	    
+	    };    
 
 	 }
 
@@ -199,11 +195,12 @@ class HomeScreen extends Component {
 						</div>
 					</div>		    	    	
 		    	</div>
-		    	<div className = "bg-black">
-		    	<ScrollerChart/>
+		    	{/* I changed the class to relative to allow the z-index staking to work here */}
+		    	<div className = "bg-black z-0 relative">
+		    		<ScrollerChart/>
 		    	</div>
 
-		    	<div className = "bg-white pa3 ph5-ns ">
+		    	<div className = "bg-white pa3 ph5-ns z-10 ">
 		    		<h2 className = "pl3"> Architecture </h2>
 		    		<GridList className={classes.gridList} cols={3.5}> 
 		    			{this.renderArchitecture()}
@@ -211,7 +208,7 @@ class HomeScreen extends Component {
 		    	</div>
 		    	
 
-		    	<div className = "bg-white pa3 ph5-ns">
+		    	<div className = "bg-white pa3 ph5-ns z-10">
 		    		<h2 className = "pl3"> Engineering </h2>
 			    	<GridList className={classes.gridList} cols={3.5}> 
 			    		{this.renderEngineering()}
@@ -219,7 +216,7 @@ class HomeScreen extends Component {
 
 		    	</div>
 
-		    	<div className = "bg-white pa3 ph5-ns">
+		    	<div className = "bg-white pa3 ph5-ns z-10">
 		    		<h2 className = "pl3"> Software </h2>
 			    	<GridList className={classes.gridList} cols={3.5}> 
 			    		{this.renderSoftware()}

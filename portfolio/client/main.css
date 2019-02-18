@@ -16,7 +16,7 @@
 
 .gridList {
   flexWrap: nowrap;
-  transform: translateZ(0);
+  transform: translateZ(3);
 }
 
 .gridOverflow {
