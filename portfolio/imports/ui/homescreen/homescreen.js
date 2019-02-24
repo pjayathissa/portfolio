@@ -28,7 +28,6 @@ const styles = theme => ({
 class HomeScreen extends Component {
   constructor() {
     super();
-    console.log(data[0].architecture[1])
 
 
 	    this.state = {

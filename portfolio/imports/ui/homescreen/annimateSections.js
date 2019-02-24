@@ -11,6 +11,7 @@ import d3 from 'd3'
 import 'tachyons'
 
 import {scroller} from './scroller.js'
+import {processData} from './processData.js'
 // import {}
 
 //credits: https://github.com/vlandham/scroll_demo/
@@ -19,6 +20,8 @@ class ScrollerChart extends Component {
   constructor(props) {
     super(props)
     this.state = {
+          tagcolours : {"<18": "#FF6666", "university": "#FF99FF", "engineering": "#FFFF66",  "architecture": "#66CCFF", "software": "#9966FF", "organisations": "#99FF66", "travel" : "#FF9966" }
+
 
     }
   };
@@ -27,14 +30,7 @@ class ScrollerChart extends Component {
   scrollVis(){
 
     // The data that we are using for this visualisation
-    var data = [{name: "Reference", value: [1947,1511,690, 321, 209, 0], previous: [1947,1511,690, 321, 209, 0]}, 
-    {name: "Envelope", value: [1602,1472,651,322,209, 0], previous: [1947,1511,690, 321, 209, 0]}, 
-    {name: "Aircon", value: [1200,1070, 626,321, 209, 0], previous: [1602,1472,651,322,209, 0]},
-    {name: "Hybrid", value: [820, 820, 497, 320, 209, 0], previous: [1200,1070, 626,321, 209, 0]}, // Note the graph doesn't add up
-    {name: "January", value: [646, 605, 387,245, 186, 30], previous: [820,497, 320,320, 209, 0]}, // Added uncertainity to the start of the graph
-    {name: "February", value: [497,470, 348,228, 176, 30], previous: [646, 605, 387,245, 186, 30]},
-    {name: "Solar", value: [510], previous: [0]}]
-
+    var data = processData()
 
     // Window Area
     let windowWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -69,7 +65,8 @@ class ScrollerChart extends Component {
     // Left is light, right is dark
     //var barColors = { 0: '#A9FCFF', 1: '#86F3FA', 2: '#30D8ED', 3: '#00AAD7', 4:'#0074B3', 5: '#004487' };
     var barColors = { 0: '#FED4B2', 1: '#FBC193', 2: '#F9AE76', 3: '#F79650', 4:'#F48031', 5: '#874434' };
-
+    var tagcolours = this.state.tagcolours
+    var square_size = (width/52.0)
 
     // Our Chart which we will call
     var chart = function (selection){
@@ -92,11 +89,26 @@ class ScrollerChart extends Component {
         g = svg.select('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-        // define the bar as a group that will eventually contain rectangles
+        // define the sqaure sizes
+
+        
+
+        var squares = g.selectAll('.square').data(data)
+                        .enter()
+                        .append('rect')
+                        .attr('width', square_size*0.8)
+                        .attr('height', square_size*0.8)
+                        .attr('fill', 'gray')
+                        .attr('x', (d) => {return (d.week%52)*square_size})
+                        .attr('y', (d) => {return (Math.floor(d.week/52))*square_size})
+                        .attr('opacity', 0)
+                        .attr('class', 'square')
+
 
 
 
         // Sets the sections up, see next function below
+        
         setupSections();
 
       })
@@ -123,30 +135,125 @@ class ScrollerChart extends Component {
 // Activate Function 0
 var showReference = function(){
 
+
   // Show first bar
+    g.selectAll('.square').transition()
+              .delay(0)
+              .attr('opacity', 0)
+
 }
 
 var showFirst = function(){
 
     // Select the second bar and link in the real data set
+    
+
+     g.selectAll('.square').transition()
+              .attr('opacity', 1)
+              .delay((d,i) => i*1);
+
+    // HOver over metadata div
+    var metaData = d3.select("body").append("div")  
+    .attr("class", "tooltip")       
+    .style("opacity", 0);
+
+    // Delete div when user clicks away
+    d3.select("body")
+    .on("click",function(){
+      console.log("click away")
+      d3.select("body").selectAll(".tooltip")
+      .transition()
+      .style("opacity",0);
+    });
+
+    // Show div when user hovers over
+    g.selectAll('.square').on("mouseover", function(d) {    
+            metaData.transition()    
+                .duration(200)    
+                .style("opacity", .9);    
+            metaData .html("Week: " + d.week + "<br/>"  + d.activity[0].name)  
+                .style("left", (d3.event.pageX) + "px")   
+                .style("top", (d3.event.pageY - 28) + "px");  
+            })
 
 }
 
   var showSecond = function(){
-    // Select the second bar and link in the new data to it
+    // Select the second bar and link in the new data to it FFFF66 #FFCC33=yellow
+    console.log(this.state)
+    //let tagcolours = this.state.tagcolours
+
+    //var tagcolours = {"<18": "#FF6666", "engineering": "#FFFF66", "organisations": "#99FF66", "architecture": "#66CCFF", "software": "#9966FF", "university": "#FF99FF", "travel" : "#FF9966" }
+
+    g.selectAll('.square').transition()
+              .attr('fill', (d) => {return (tagcolours[d.tags[0]] ? tagcolours[d.tags[0]] : "gray")})
+              .delay((d,i) => i*1);
 
 
   }
 
 
   var showThird = function(){
-    // Select the second bar and link in the new data to it
+    // Filter under 18
+
+    g.selectAll('.square').transition()
+                          .attr("opacity", (d)=> {return d.tags[0]=="<18" || d.tags.length==0 ? 0 : 1})
+    // let filteredData = data.filter((d) => d.tags[0]!="<18")
+    // console.log(filteredData)
+
+    // let circleGroup = g.selectAll('.square').data(filteredData);
+    // circleGroup.exit().remove();
+    // // circleGroup.transition()
+    // //                     .attr('width', square_size*0.8)
+    // //                     .attr('height', square_size*0.8)
+    // //                     .attr('fill', 'gray')
+    // //                     .attr('x', (d) => {return (d.week%52)*square_size})
+    // //                     .attr('y', (d) => {return (Math.floor(d.week/52))*square_size})
+    // //                     .attr('opacity', 1)
+    // //                     .attr('class', 'square')
+    // circleGroup.transition()
+    //             .duration(500)
+    //             .attr("fill", (d) => {return (tagcolours[d.tags[0]] ? tagcolours[d.tags[0]] : "gray")})
+    //             .attr();
+
+
  
   }
 
 
   var showFourth = function(){
     // Select the second bar and link in the new data to it
+    // let uniCount = 0;
+    // let engCount = 0;
+    // let archCount = 0;
+    // let softCount = 0;
+    // let orgCount = 0;
+    // let travelCount = 0;
+    let tagCountX = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
+    let tagCountY = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
+
+    let barXLabels = Object.keys(tagcolours)
+
+
+    g.selectAll('.square').transition()
+                          .duration(1000)
+                            .attr("y", (d)=> {
+                              if (d.tags[0] in tagCountX){
+                              let pos = barXLabels.indexOf(d.tags[0])*square_size*6
+                              pos = pos + tagCountX[d.tags[0]]%5 * square_size
+                              tagCountX[d.tags[0]]++
+                              return pos
+                              }
+                            })
+                            .attr("x", (d)=> {
+
+                              if (d.tags[0] in tagCountY){
+                                let pos = 0
+                                pos = pos + Math.floor(tagCountY[d.tags[0]]/5) * square_size
+                                tagCountY[d.tags[0]]++
+                                return pos
+                              }
+                            })
  
   }
 
@@ -157,7 +264,9 @@ var showFirst = function(){
 
      var showSolar = function(){
      // Select the second bar and link in the new data to it
-     var solarBar = g.select('.Solar').selectAll('rect')
+     g.selectAll('.square').transition()
+              .delay(0)
+              .attr('opacity', 0)
 
    }
 
@@ -220,53 +329,62 @@ componentDidMount() {
   	return(
      <div>	
       <div id ="graphic">
-        <div id = "sections" className = "relative dib w-25 z-2">
-          <section className = "step mb7">
+        <div id = "sections" className = "pl2 relative dib w-25 z-2">
+          <section className = "step mb7 white">
+
             <div className = "b">
-              Reference Building
+              
             </div>
-            <div className = "">
+          </section>
+
+          <section className = "step mb7 white">
+            <div className = "b ">
+              life as a dataset
+            </div>
+            <div className = "f6">
+            each square is a week of my life, each row=1year
+              
+            </div>
+          </section>
+
+          <section className = "step mb7 white">
+            <div className = "b">
+              We can colour the data based on its tags
+            </div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["<18"]}}> Under 18 </div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["university"]}}> University </div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> Engineering Projects</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> Architecture Projects</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> Software Projects</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> Social Organisations</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["travel"]}}> Travel</div>
+              
             
-            </div>
           </section>
 
-          <section className = "step mb7">
+          <section className = "step mb7 white">
             <div className = "b">
-              Envelope Design
+              Lets first filter this data
             </div>
             <div className = "f6">
-              
+            <ul>
+              <li>Removing time when I was in school or younger</li>
+
+              <li>Removing missing datapoints not captured in resume</li>
+            </ul>
             </div>
           </section>
 
-          <section className = "step mb7">
+          <section className = "step mb7 white">
             <div className = "b">
-              High Efficiency Cooling
-            </div>
-            <div className = "f6">
-              
-            </div>
-          </section>
-
-          <section className = "step mb7">
-            <div className = "b">
-              Hybrid System
-            </div>
-            <div className = "f6">
-              Cieling fans, and natural ventilation 
-            </div>
-          </section>
-
-          <section className = "step mb7">
-            <div className = "b">
-              January Redesign
+              And we can now move the bars around
             </div>
             <div className = "f6">
               With detailed energy simulation and optmisation
             </div>
           </section>
 
-          <section className = "step mb7">
+          <section className = "step mb7 white">
             <div className = "b">
               February Redesign
             </div>
@@ -275,7 +393,7 @@ componentDidMount() {
             </div>
           </section>
 
-          <section className = "step mb7 pb7">
+          <section className = "step mb7 white pb7">
             <div className = "b">
               Roof Top Solar
             </div>
