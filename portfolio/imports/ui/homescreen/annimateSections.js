@@ -38,7 +38,7 @@ class ScrollerChart extends Component {
     console.log("window width" + window.innerWidth)
     let windowHeight = screen.height;
     var width = windowWidth/2.0;
-    var height =windowHeight/2.0;
+    var height =windowHeight/1.5;
     var margin = { top: 0, left: 20, bottom: 40, right: 10 };
 
     // keeing track of which visualisation we are on
@@ -93,16 +93,33 @@ class ScrollerChart extends Component {
 
         
 
-        var squares = g.selectAll('.square').data(data)
-                        .enter()
-                        .append('rect')
+        var squareGroup = g.selectAll(".squareGroup").data(data)
+                                                      .enter()
+                                                      .append("g")
+                                                      .attr("class", "squareGroup")
+                                                      .attr("transform", function(d,i){
+                                                        let x = (d.week%52)*square_size
+                                                        let y = (Math.floor(d.week/52))*square_size
+
+                                                      return "translate(" + x  + "," + y + ")"});
+
+        var squares = squareGroup.append('rect')
                         .attr('width', square_size*0.8)
                         .attr('height', square_size*0.8)
                         .attr('fill', 'gray')
-                        .attr('x', (d) => {return (d.week%52)*square_size})
-                        .attr('y', (d) => {return (Math.floor(d.week/52))*square_size})
                         .attr('opacity', 0)
                         .attr('class', 'square')
+                                                                               
+        // var squares = g.selectAll('.square').data(data)
+        //                 .enter()
+        //                 .append('rect')
+        //                 .attr('width', square_size*0.8)
+        //                 .attr('height', square_size*0.8)
+        //                 .attr('fill', 'gray')
+        //                 .attr('x', (d) => {return (d.week%52)*square_size})
+        //                 .attr('y', (d) => {return (Math.floor(d.week/52))*square_size})
+        //                 .attr('opacity', 0)
+        //                 .attr('class', 'square')
 
 
 
@@ -229,36 +246,39 @@ var showFirst = function(){
     // let softCount = 0;
     // let orgCount = 0;
     // let travelCount = 0;
-    let tagCountX = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
-    let tagCountY = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
+    let tagCount = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
+
 
     let barXLabels = Object.keys(tagcolours)
 
 
-    g.selectAll('.square').transition()
+    g.selectAll('.squareGroup').transition()
                           .duration(1000)
-                            .attr("y", (d)=> {
-                              if (d.tags[0] in tagCountX){
-                              let pos = barXLabels.indexOf(d.tags[0])*square_size*6
-                              pos = pos + tagCountX[d.tags[0]]%5 * square_size
-                              tagCountX[d.tags[0]]++
-                              return pos
+                            .attr("transform", (d)=> {
+                              if (d.tags[0] in tagCount){
+                                let ypos = barXLabels.indexOf(d.tags[0])*square_size*6.5
+                                ypos = ypos + tagCount[d.tags[0]]%5 * square_size
+                                let xpos = Math.floor(tagCount[d.tags[0]]/5) * square_size
+                                tagCount[d.tags[0]]++
+                                return "translate(" + xpos  + "," + ypos + ")"
                               }
                             })
-                            .attr("x", (d)=> {
+    let counter = 1
+    for (var key in tagcolours) {
+      g.select('.squareGroup').append("text").text(key)
+                                          .style("fill", tagcolours[key])
+                                          .style("font-weight", "bold")
+                                          .attr("y", square_size*6.5*counter - square_size*0.2)
 
-                              if (d.tags[0] in tagCountY){
-                                let pos = 0
-                                pos = pos + Math.floor(tagCountY[d.tags[0]]/5) * square_size
-                                tagCountY[d.tags[0]]++
-                                return pos
-                              }
-                            })
+      counter++
+      }
  
   }
 
   var showFifth = function(){
      // Select the second bar and link in the new data to it
+
+
 
    }
 
@@ -349,14 +369,14 @@ componentDidMount() {
 
           <section className = "step mb7 white">
             <div className = "b">
-              We can colour the data based on its tags
+              we can colour the data based on its tags
             </div>
             <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["<18"]}}> Under 18 </div>
             <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["university"]}}> University </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> Engineering Projects</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> Architecture Projects</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> Software Projects</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> Social Organisations</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> Engineering</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> Architecture</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> Software</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> Social</div>
             <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["travel"]}}> Travel</div>
               
             
@@ -364,41 +384,37 @@ componentDidMount() {
 
           <section className = "step mb7 white">
             <div className = "b">
-              Lets first filter this data
+              lets first filter this data
             </div>
             <div className = "f6">
-            <ul>
-              <li>Removing time when I was in school or younger</li>
-
-              <li>Removing missing datapoints not captured in resume</li>
-            </ul>
+              removing missing data and life under the age of 18
             </div>
           </section>
 
           <section className = "step mb7 white">
             <div className = "b">
-              And we can now move the bars around
+              and we can now move the squares to a bar chart
             </div>
             <div className = "f6">
-              With detailed energy simulation and optmisation
+              each column is roughly one month
             </div>
           </section>
 
           <section className = "step mb7 white">
             <div className = "b">
-              February Redesign
+              but the full picture is missing
             </div>
             <div className = "f6">
-              With reduced ventilation schedule 
+              More visualisations coming soon...
             </div>
           </section>
 
           <section className = "step mb7 white pb7">
             <div className = "b">
-              Roof Top Solar
+              and thats all for now
             </div>
             <div className = "f6">
-              510MWh per year capacity
+              enjoy my standard project portfolio below
             </div>
           </section>
         </div>
