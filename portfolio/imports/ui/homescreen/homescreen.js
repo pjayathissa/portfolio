@@ -13,7 +13,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ProjectCard from './projectcard.js'
 import PJname from './pj.js'
-import data from './myData.json'
+import ScrollerChart from './annimateSections.js'
+import data from './portfolioData.json'
 
 const styles = theme => ({
   gridList: {
@@ -27,17 +28,12 @@ const styles = theme => ({
 class HomeScreen extends Component {
   constructor() {
     super();
-    console.log(data[0].architecture[1])
 
 
 	    this.state = {
 	    	data: [1],
 	    	in: true,
-	    };
-
-	    
-
-	    
+	    };    
 
 	 }
 
@@ -176,6 +172,23 @@ class HomeScreen extends Component {
 
 	 }
 
+	 renderSocial() {
+
+	 	return data[0].social.map((item, idx) => (
+	    			<ProjectCard
+	    				key = {idx}
+	    				title = {item.title}
+	    				year = {item.year}
+	    				imageurl = {item.imageurl}
+	    				linksurl = {item.linksurl}
+	    				position = {item.position}
+	    				brief = {item.brief}
+	    				descriptive = {item.descriptive}
+	    				/>
+	    			))
+
+	 }
+
 
 
     render() {
@@ -198,8 +211,12 @@ class HomeScreen extends Component {
 						</div>
 					</div>		    	    	
 		    	</div>
+		    	{/* I changed the class to relative to allow the z-index staking to work here */}
+		    	<div className = "bg-black z-0 relative">
+		    		<ScrollerChart/>
+		    	</div>
 
-		    	<div className = "bg-white pa3 ph5-ns ">
+		    	<div className = "bg-white pa3 ph5-ns z-10 ">
 		    		<h2 className = "pl3"> Architecture </h2>
 		    		<GridList className={classes.gridList} cols={3.5}> 
 		    			{this.renderArchitecture()}
@@ -207,7 +224,7 @@ class HomeScreen extends Component {
 		    	</div>
 		    	
 
-		    	<div className = "bg-white pa3 ph5-ns">
+		    	<div className = "bg-white pa3 ph5-ns z-10">
 		    		<h2 className = "pl3"> Engineering </h2>
 			    	<GridList className={classes.gridList} cols={3.5}> 
 			    		{this.renderEngineering()}
@@ -215,10 +232,18 @@ class HomeScreen extends Component {
 
 		    	</div>
 
-		    	<div className = "bg-white pa3 ph5-ns">
+		    	<div className = "bg-white pa3 ph5-ns z-10">
 		    		<h2 className = "pl3"> Software </h2>
 			    	<GridList className={classes.gridList} cols={3.5}> 
 			    		{this.renderSoftware()}
+			    	</GridList>
+
+		    	</div>
+
+		    	<div className = "bg-white pa3 ph5-ns z-10">
+		    		<h2 className = "pl3"> Social Organisations </h2>
+			    	<GridList className={classes.gridList} cols={3.5}> 
+			    		{this.renderSocial()}
 			    	</GridList>
 
 		    	</div>

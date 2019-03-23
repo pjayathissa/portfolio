@@ -8,7 +8,7 @@
 		"linksurl": [],
 		"brief": "The Adaptive Systems Laboratory is a state of the art, buildings research facility. The lab will test the latest in robotic fabrication methods, energy efficiency, facades, solar power, building systems and control.",
 		"descriptive": [
-			"The laboratory comes equipped with an artificial microclimate, in which the temperature, humidity and solar radiation can be controlled to simulate virtually any global climate. See the LED Solar Emulator in Engineering below for more information. A modular test room is embedded within this environment", 
+			"The laboratory comes equipped with an artificial micro-climate, in which the temperature, humidity and solar radiation can be controlled to simulate virtually any global climate. See the LED Solar Emulator in Engineering below for more information. A modular test room is embedded within this environment", 
 			"The building also has two south facing test cells that are exposed to the natural Zurich climate, in which parallel experiments can be conducted. The facade, roof, floor, and internal walls are designed to be modular so they can be substituted in future experiments.",
 			"The ground floor consists of a large fully glazed machine room, in which new buildings systems such as heat pumps can be installed and used to supply the various experimental zones."
 			]
@@ -46,7 +46,7 @@
 		"Designed primarily for the HiLo building (above), the facade fuses the disciplines of architecture and robotics to create an energy efficient building envelope. ", 
 		" The facade consists of an array of thin film photovoltaic panels that can be independently actuated in two degrees of freedom using a custom built soft robotic actuator.",
 		"The facade will move the panels to maintain a comfortable interior temperature and daylight conditions, maximise the electricity production on the panels, and reduce the energy demand of the building space behind the facade. This is achieved through a default multi-objective optimisation algorithm, which is to be complimented with machine learning once installed.",
-		"The facade has been designed with maintenance costs and lifecycle carbon costs in mind. ",
+		"The facade has been designed with maintenance costs and life-cycle carbon costs in mind. ",
 		"Due to the amount of innovation required to develop this technology, I was able to publish a doctoral dissertation on the topic."
 		]
 		},
@@ -60,7 +60,7 @@
 		"brief": "The LED Solar Simulator can simulate the radiation characteristics of the sun with a high spectral match, uniformity, and parallelism of light. It is a first of its kind technology, that is currently under construction.",
 		"descriptive": [
 		"The Solar Simulator was designed for the Adaptive Systems Laboratory with our partner company USHIO. ", 
-		"The technology is still under construction, and as a result I cannot disclose any further details. I will publish more facinating aspects of this design once it is constructed"]
+		"The technology is still under construction, and as a result I cannot disclose any further details. I will publish more fascinating aspects of this design once it is constructed"]
 
 		},
 
@@ -72,8 +72,8 @@
 		"linksurl": [],
 		"brief": "This microstructure plaster is capable of healing wounds three times faster than a conventional plaster. The pattern of concentric lines helps guide skin cells from the edge of the wound to the centre.",
 		"descriptive": [
-		"Biologists at the ETH Zurich discovered that skin cells, when placed on a ridges measuring 1micrometer high, and wide, will always move along the ridge line and not across it. They hypothesised that if this were to be constructed in the form of a circular plaster, it would help guide cells from the outside of the wound towards the centre, thus accelerating the healing process.", 
-		"I designed the fabrication methodology at IBM Laboratories in Zurich, using photolithography and silicon wafer etching techniques that are commonly used in microprocessor production.",
+		"Biologists at the ETH Zurich discovered that skin cells, when placed on a ridges measuring 1 micrometer high, and wide, will always move along the ridge line and not across it. They hypothesised that if this were to be constructed in the form of a circular plaster, it would help guide cells from the outside of the wound towards the centre, thus accelerating the healing process.", 
+		"I designed the fabrication methodology at IBM Laboratories in Zurich, using photo-lithography and silicon wafer etching techniques that are commonly used in microprocessor production.",
 		"Through a painful trial and error process, a fabrication methodology was finally developed to create a silicone wafer mould, that could cast a PDMS silicone (note the e) rubber. ",
 		"My first experiments on a statistically insignificant sample set of lab grown human cells showed an acceleration of healing by a factor of three. The technology is now back in the hands of the biologists where they will continue testing in the hope to one day bring this to the market. Although, knowing the medical field, this may still be a long way away."
 		]
@@ -82,7 +82,7 @@
 
 		{
 		"title": "Thermocycler",
-		"position": "Project Coordinator",
+		"position": "Design and Fabrication",
 		"year": 2012,
 		"imageurl": "/static/images/Thermocycler.png",
 		"linksurl": [{"url": "https://www.greenteg.com/", "text": "greenTEG Website"}],
@@ -95,7 +95,7 @@
 
 		{
 		"title": "Yike Bike",
-		"position": "Engineering Consultancy",
+		"position": "Design Contract",
 		"year": 2010,
 		"imageurl": "/static/images/YikeBike.jpg",
 		"linksurl": [{"url": "http://www.yikebike.com/", "text": "YikeBike Website"}],
@@ -111,7 +111,7 @@
 		"software": [
 		{
 		"title": "SpaceMatch",
-		"position": "Project Coordinator",
+		"position": "Developer",
 		"year": 2019,
 		"imageurl": "/static/images/SpaceMatch.png",
 		"linksurl": [],
@@ -129,11 +129,40 @@
 		"brief": "BioCloud brings complex computer vision tools in an easy to use, graphical interface that requires no prior programming experience. It was designed for biomedical researchers to accelerate the analysis of microscopic images.",
 		"descriptive": [
 		"BioCloud wraps the openCV computer vision library in an intuitive drop and drag interface where they graphically program their own computer vision algorithm. Once the pipeline of commands is set the user can batch process their algorithm to their entire data set.", 
-		"The software was accepted into the Oxford-Cambridge biotech accelerator. Unfortunately, due to the lack of time, this project came to a halt. ",
+		"The software was accepted into the Oxford-Cambridge biotechnology accelerator. Unfortunately, due to the lack of time, this project came to a halt. ",
 		"Due to the advances in browser technology, and the release of openCVjs, I plan on developing a fully client side BioCloud2 sometime in the future. Stay tuned"]
 
-		}
-		]
+		}],
+
+		"social": [
+		{
+		"title": "Action for Women",
+		"position": "Swiss Coordinator",
+		"year": 2015,
+		"imageurl": "/static/images/ActionForWomen.png",
+		"linksurl": [{"url":"https://actionforwomen.ch", "text": "Action for Women Website"}],
+		"brief": "Action for Women is a non-profit organisation that provides safe sanctuaries for vulnerable women fleeing conflict in their home countries",
+		"descriptive": [
+		"Action for Women (formally Action from Switzerland), is a grass-roots movement to address the growing humanitarian crisis in Europe, and the impact it has on vulnerable women", 
+		"Since 2015, we have set up two women protection shelters:", 
+		"The first is on the island of Chios, a refugee hotspot, which provides immediate social psychological support, education, information, and most importantly a safe space to escape and report instances of gender based violence.",
+		"The second, in Athens, provides long term support for survivors of human trafficking and gender based violence.",
+		"I left the organisation in good hands in 2018, and would highly encourage you to donate, as I can vouch that 95% of your donation will directly go to the benefit of the women supported."]
+
+		},
+
+		{
+		"title": "Climate-KIC Alumni Association",
+		"position": "President",
+		"year": 2014,
+		"imageurl": "/static/images/CKAA.png",
+		"linksurl": [{"url": "http://ckaa.eu", "text": "CKAA Website"}, {"url": "https://www.climate-kic.org", "text": "Climate-KIC Website"}],
+		"brief": "Climate-KIC Alumni Association (CKAA) is a European network of over 2000 climate change focussed entrepreneurs",
+		"descriptive": [
+		"Climate-KIC is Europe's largest climate change initiative which aims to curb CO2 emissions through the support of climate focussed innovation.", 
+		"Graduates of Climate-KICs various incubators, education programs, and innovation hubs join the Alumni Network which is run through the voluntary contributions of its members."]
+		}]
+
 }
 
 
