@@ -97,6 +97,7 @@ class ScrollerChart extends Component {
                                                       .enter()
                                                       .append("g")
                                                       .attr("class", "squareGroup")
+                                                      .attr("opacity", 0)
                                                       .attr("transform", function(d,i){
                                                         let x = (d.week%52)*square_size
                                                         let y = (Math.floor(d.week/52))*square_size
@@ -408,7 +409,7 @@ componentDidMount() {
               now let the data dance
             </div>
             <div className = "f6">
-              each column is roughly one month
+              each column is roughly one month of my life
             </div>
           </section>
 
