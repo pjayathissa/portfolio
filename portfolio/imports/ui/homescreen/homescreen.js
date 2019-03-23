@@ -172,6 +172,23 @@ class HomeScreen extends Component {
 
 	 }
 
+	 renderSocial() {
+
+	 	return data[0].social.map((item, idx) => (
+	    			<ProjectCard
+	    				key = {idx}
+	    				title = {item.title}
+	    				year = {item.year}
+	    				imageurl = {item.imageurl}
+	    				linksurl = {item.linksurl}
+	    				position = {item.position}
+	    				brief = {item.brief}
+	    				descriptive = {item.descriptive}
+	    				/>
+	    			))
+
+	 }
+
 
 
     render() {
@@ -219,6 +236,14 @@ class HomeScreen extends Component {
 		    		<h2 className = "pl3"> Software </h2>
 			    	<GridList className={classes.gridList} cols={3.5}> 
 			    		{this.renderSoftware()}
+			    	</GridList>
+
+		    	</div>
+
+		    	<div className = "bg-white pa3 ph5-ns z-10">
+		    		<h2 className = "pl3"> Social Organisations </h2>
+			    	<GridList className={classes.gridList} cols={3.5}> 
+			    		{this.renderSocial()}
 			    	</GridList>
 
 		    	</div>

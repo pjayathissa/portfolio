@@ -107,7 +107,7 @@ class ScrollerChart extends Component {
                         .attr('width', square_size*0.8)
                         .attr('height', square_size*0.8)
                         .attr('fill', 'gray')
-                        .attr('opacity', 0)
+                        .attr('opacity', 1)
                         .attr('class', 'square')
                                                                                
         // var squares = g.selectAll('.square').data(data)
@@ -154,7 +154,7 @@ var showReference = function(){
 
 
   // Show first bar
-    g.selectAll('.square').transition()
+    g.selectAll('.squareGroup').transition()
               .delay(0)
               .attr('opacity', 0)
 
@@ -165,7 +165,7 @@ var showFirst = function(){
     // Select the second bar and link in the real data set
     
 
-     g.selectAll('.square').transition()
+     g.selectAll('.squareGroup').transition()
               .attr('opacity', 1)
               .delay((d,i) => i*1);
 
@@ -256,7 +256,8 @@ var showFirst = function(){
                           .duration(1000)
                             .attr("transform", (d)=> {
                               if (d.tags[0] in tagCount){
-                                let ypos = barXLabels.indexOf(d.tags[0])*square_size*6.5
+                                let ypos = barXLabels.indexOf(d.tags[0])*square_size*8.5
+                                //Bar has a y-width of 5 blocks
                                 ypos = ypos + tagCount[d.tags[0]]%5 * square_size
                                 let xpos = Math.floor(tagCount[d.tags[0]]/5) * square_size
                                 tagCount[d.tags[0]]++
@@ -264,11 +265,19 @@ var showFirst = function(){
                               }
                             })
     let counter = 1
-    for (var key in tagcolours) {
+    for (var key in tagCount) {
       g.select('.squareGroup').append("text").text(key)
                                           .style("fill", tagcolours[key])
                                           .style("font-weight", "bold")
-                                          .attr("y", square_size*6.5*counter - square_size*0.2)
+                                          .style("font-size", 10)
+                                          .attr("y", square_size*8.5*counter - square_size*0.5)
+                                          .attr("opacity", 0)
+                                          .attr("class", "labels")
+
+      g.select('.squareGroup').selectAll("text").transition()
+                                                .duration(200)
+                                                .delay(1200)
+                                                .attr("opacity", 1)
 
       counter++
       }
@@ -284,9 +293,11 @@ var showFirst = function(){
 
      var showSolar = function(){
      // Select the second bar and link in the new data to it
-     g.selectAll('.square').transition()
+     g.selectAll('.squareGroup').transition()
               .delay(0)
               .attr('opacity', 0)
+
+
 
    }
 
@@ -359,32 +370,33 @@ componentDidMount() {
 
           <section className = "step mb7 white">
             <div className = "b ">
-              life as a dataset
+              my life as a dataset
             </div>
             <div className = "f6">
-            each square is a week of my life, each row=1year
+            each square is a week of my life, <br/> 
+            1 row = 1 year 
               
             </div>
           </section>
 
           <section className = "step mb7 white">
             <div className = "b">
-              we can colour the data based on its tags
+              let us bring life to this data through colour
             </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["<18"]}}> Under 18 </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["university"]}}> University </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> Engineering</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> Architecture</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> Software</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> Social</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["travel"]}}> Travel</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["<18"]}}> under 18 </div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["university"]}}> university </div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> engineering</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> architecture</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> software</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> social</div>
+            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["travel"]}}> travel</div>
               
             
           </section>
 
           <section className = "step mb7 white">
             <div className = "b">
-              lets first filter this data
+              first step: filter
             </div>
             <div className = "f6">
               removing missing data and life under the age of 18
@@ -393,7 +405,7 @@ componentDidMount() {
 
           <section className = "step mb7 white">
             <div className = "b">
-              and we can now move the squares to a bar chart
+              now let the data dance
             </div>
             <div className = "f6">
               each column is roughly one month
@@ -411,10 +423,10 @@ componentDidMount() {
 
           <section className = "step mb7 white pb7">
             <div className = "b">
-              and thats all for now
+              Scroll down and enjoy my standard project portfolio below
             </div>
             <div className = "f6">
-              enjoy my standard project portfolio below
+              And come back for more updates
             </div>
           </section>
         </div>
