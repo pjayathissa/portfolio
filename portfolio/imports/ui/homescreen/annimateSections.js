@@ -88,6 +88,7 @@ class ScrollerChart extends Component {
         // Move the main g depending on the margins
         g = svg.select('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+        .attr("opacity", 1)
 
         // define the sqaure sizes
 
@@ -153,11 +154,11 @@ class ScrollerChart extends Component {
 // Activate Function 0
 var showReference = function(){
 
+    g.attr('opacity', 0)
 
-  // Show first bar
-    g.selectAll('.squareGroup').transition()
-              .delay(0)
-              .attr('opacity', 0)
+    // g.selectAll('.squareGroup').transition()
+    //           .delay(0)
+    //           .attr('opacity', 0)
 
 }
 
@@ -165,10 +166,11 @@ var showFirst = function(){
 
     // Select the second bar and link in the real data set
     
+    g.attr('opacity', 1)
 
      g.selectAll('.squareGroup').transition()
               .attr('opacity', 1)
-              .delay((d,i) => i*1);
+              .delay((d,i) => Math.floor(i/52)*30);
 
     // HOver over metadata div
     var metaData = d3.select("body").append("div")  
@@ -240,13 +242,8 @@ var showFirst = function(){
 
 
   var showFourth = function(){
-    // Select the second bar and link in the new data to it
-    // let uniCount = 0;
-    // let engCount = 0;
-    // let archCount = 0;
-    // let softCount = 0;
-    // let orgCount = 0;
-    // let travelCount = 0;
+    // Let the data dance
+
     let tagCount = {"university": 0, "engineering": 0,  "architecture": 0, "software": 0, "organisations": 0, "travel" : 0 }
 
 
@@ -265,19 +262,19 @@ var showFirst = function(){
                                 return "translate(" + xpos  + "," + ypos + ")"
                               }
                             })
+                            .delay((d,i) => Math.floor(i/150)*100)
     let counter = 1
     for (var key in tagCount) {
       g.select('.squareGroup').append("text").text(key)
                                           .style("fill", tagcolours[key])
                                           .style("font-weight", "bold")
-                                          .style("font-size", 10)
                                           .attr("y", square_size*8.5*counter - square_size*0.5)
                                           .attr("opacity", 0)
                                           .attr("class", "labels")
 
       g.select('.squareGroup').selectAll("text").transition()
                                                 .duration(200)
-                                                .delay(1200)
+                                                .delay(2200)
                                                 .attr("opacity", 1)
 
       counter++
@@ -294,9 +291,7 @@ var showFirst = function(){
 
      var showSolar = function(){
      // Select the second bar and link in the new data to it
-     g.selectAll('.squareGroup').transition()
-              .delay(0)
-              .attr('opacity', 0)
+     g.attr('opacity', 0)
 
 
 
@@ -370,10 +365,10 @@ componentDidMount() {
           </section>
 
           <section className = "step mb7 white">
-            <div className = "b ">
+            <div className = "b f3-ns f4">
               my life as a dataset
             </div>
-            <div className = "f6">
+            <div className = "f3-ns f5">
             each square is a week of my life, <br/> 
             1 row = 1 year 
               
@@ -381,52 +376,52 @@ componentDidMount() {
           </section>
 
           <section className = "step mb7 white">
-            <div className = "b">
+            <div className = "b f3-ns f4 f3-ns f4">
               let us bring life to this data through colour
             </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["<18"]}}> under 18 </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["university"]}}> university </div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["engineering"]}}> engineering</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["architecture"]}}> architecture</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["software"]}}> software</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["organisations"]}}> social</div>
-            <div className = "pl2 f6 b" style = {{color:this.state.tagcolours["travel"]}}> travel</div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["<18"]}}> under 18 </div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["university"]}}> university </div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["engineering"]}}> engineering</div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["architecture"]}}> architecture</div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["software"]}}> software</div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["organisations"]}}> social</div>
+            <div className = "pl2 f4-ns f5 b" style = {{color:this.state.tagcolours["travel"]}}> travel</div>
               
             
           </section>
 
           <section className = "step mb7 white">
-            <div className = "b">
+            <div className = "b f3-ns f4">
               first step: filter
             </div>
-            <div className = "f6">
+            <div className = "f3-ns f5">
               removing missing data and life under the age of 18
             </div>
           </section>
 
           <section className = "step mb7 white">
-            <div className = "b">
+            <div className = "b f3-ns f4">
               now let the data dance
             </div>
-            <div className = "f6">
+            <div className = "f3-ns f5">
               each column is roughly one month of my life
             </div>
           </section>
 
           <section className = "step mb7 white">
-            <div className = "b">
+            <div className = "b f3-ns f4">
               but the full picture is missing
             </div>
-            <div className = "f6">
+            <div className = "f3-ns f5">
               More visualisations coming soon...
             </div>
           </section>
 
           <section className = "step mb7 white pb7">
-            <div className = "b">
+            <div className = "b f3-ns f4">
               Scroll down and enjoy my standard project portfolio below
             </div>
-            <div className = "f6">
+            <div className = "f3-ns f5">
               And come back for more updates
             </div>
           </section>

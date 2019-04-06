@@ -47,7 +47,7 @@ class HomeScreen extends Component {
 			  strokeDashoffset: [anime.setDashoffset, 0],
 			  easing: 'easeInOutSine',
 			  duration: 2000,
-			  delay: 0,
+			  delay: 1000,
 			  direction: 'alternate',
 			  loop: false
 			});
@@ -62,7 +62,7 @@ class HomeScreen extends Component {
 			  strokeDashoffset: [anime.setDashoffset, 0],
 			  easing: 'easeInOutSine',
 			  duration: 2000,
-			  delay: 0,
+			  delay: 1500,
 			  direction: 'alternate',
 			  loop: false
 			});
@@ -77,7 +77,7 @@ class HomeScreen extends Component {
 			    {
 			      value: -234,
 			      duration: 1000,
-			      delay: 2500
+			      delay: 3500
 			    }
 			  ],
 			});
@@ -89,7 +89,7 @@ class HomeScreen extends Component {
 			  opacity: 1,
 			  easing: 'easeInOutQuad'
 			});
-	    }, 2700);
+	    }, 5000);
 
 	    
 	 	var scrollB = anime({
@@ -97,12 +97,12 @@ class HomeScreen extends Component {
 	 		translateY: [
 			    {
 			      value: 25,
-			      duration: 1050,
+			      duration: 1550,
 			    },
 			    {
-			      value: 100,
+			      value: 80,
 			      duration: 1000,
-			      delay: 2800,
+			      delay: 6500,
 			    }
 			  ],
 			  rotate: -45,
@@ -116,7 +116,7 @@ class HomeScreen extends Component {
 			  easing: 'easeInOutQuad'
 			});
 	    	
-	    }, 2700);
+	    }, 5000);
 
 
 	 }
@@ -197,7 +197,7 @@ class HomeScreen extends Component {
 	    return (
 		
 	    	<div>
-		    	<div className = "vh-100  dt w-100 bg-black">
+		    	<div className = "vh-100  dt w-100 bg-black z-10">
 		    		<div className = "dtc v-mid tc white ph3 ph4-l">
 		    			<div className = "w-100 h-50 top-0"> 
 		    				<PJname/>
