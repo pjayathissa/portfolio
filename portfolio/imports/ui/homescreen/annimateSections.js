@@ -291,7 +291,9 @@ var showFirst = function(){
 
      var showSolar = function(){
      // Select the second bar and link in the new data to it
-     g.attr('opacity', 0)
+     g.transition()
+      .attr('opacity', 0)
+      .delay(1000)
 
 
 
